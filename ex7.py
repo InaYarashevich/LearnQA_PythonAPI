@@ -8,7 +8,7 @@ response2 = requests.head('https://playground.learnqa.ru/ajax/api/compare_query_
 print(response2.text)
 print(response2.status_code)
 
-response3 = requests.get('https://playground.learnqa.ru/ajax/api/compare_query_type', data={"method": "GET"})
+response3 = requests.get('https://playground.learnqa.ru/ajax/api/compare_query_type', params={"method": "GET"})
 print(response3.text)
 print(response3.status_code)
 
