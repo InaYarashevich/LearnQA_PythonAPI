@@ -1,10 +1,9 @@
 import json
-from json.decoder import JSONDecodeError
-import requests
 
-json_text = requests.get('https://gist.github.com/KotovVitaliy/83e4eeabdd556431374dfc70d0ba9d37')
-try:
-    parsed_response_text = json_text.json()
-    print(parsed_response_text)
-except JSONDecodeError:
-    print("Response is not a JSON format")
+json_text = '{"messages":[{"message":"This is the first message","timestamp":"2021-06-04 16:40:53"},{"message":"And this is a second message","timestamp":"2021-06-04 16:41:01"}]}'
+obj = json.loads(json_text)
+key = "And this is a second message"
+if key in json_text:
+    print(key)
+else:
+    print(f"Ключа {key} в JSON нет")
