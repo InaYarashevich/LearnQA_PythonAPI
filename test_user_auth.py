@@ -1,6 +1,7 @@
 import requests
 
-class TestUserAuth:
+
+class TestUserAuth(BaseCase):
     def setup(self):
         data = {
             'email': 'vinkotov@example.com',

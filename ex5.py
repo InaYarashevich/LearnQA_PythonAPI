@@ -8,6 +8,3 @@ for i in jsonData:
     values = i.values()
     lists = list(values)
     print(lists[0])
-
-
-
