@@ -45,6 +45,10 @@ class TestCheckUserAgent:
         response = requests.get(url, headers=data)
         obj = json.loads(response.text)
 
-        assert obj.get("browser") == browser, f"There is no '{browser}' browser in the response"
-        assert obj.get("device") == device, f"There is no '{device}' device in the response"
-        assert obj.get("platform") == platform, f"There is no '{platform}' platform in the response"
+        actual_browser = obj.get("browser")
+        actual_platform = obj.get("platform")
+        actual_device = obj.get("device")
+
+        assert actual_browser == browser, f"There is no '{browser}' browser in the response for '{agent}'"
+        assert actual_device == device, f"There is no '{device}' device in the response for '{agent}'"
+        assert actual_platform == platform, f"There is no '{platform}' platform in the response for '{agent}'"
