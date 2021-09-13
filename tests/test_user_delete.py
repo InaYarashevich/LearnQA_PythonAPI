@@ -3,9 +3,14 @@ import requests
 import pytest
 from lib.base_case import BaseCase
 from lib.assertions import Assertions
+import allure
 
 
+@allure.epic("Deleting user")
 class TestUserDelete(BaseCase):
+    @allure.story("Deleting restricted user")
+    @allure.description("This test tries to delete restricted user")
+    @allure.severity(allure.severity_level.NORMAL)
     def test_delete_vinkotov_user(self):
         # LOGIN AS vinkotov@example.com
         data = {
@@ -37,6 +42,9 @@ class TestUserDelete(BaseCase):
         expected_fields = ["username", "email", "firstName", "lastName"]
         Assertions.assert_json_has_keys(response2, expected_fields)
 
+    @allure.story("Deleting just created user")
+    @allure.description("This test deletes just created user from their own account after authorization")
+    @allure.severity(allure.severity_level.NORMAL)
     def test_delete_just_created_user(self):
 
         # REGISTER
@@ -82,6 +90,9 @@ class TestUserDelete(BaseCase):
             "There is no such user"
         )
 
+    @allure.story("Deleting other user's profile")
+    @allure.description("This test tries to delete another user by authorized user")
+    @allure.severity(allure.severity_level.NORMAL)
     def test_delete_other_user(self):
         # REGISTER THE FIRST USER
         register_data = self.prepare_registration_data()
