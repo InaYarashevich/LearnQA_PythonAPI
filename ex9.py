@@ -22,8 +22,3 @@ with open("C:/Users/IT0054/Desktop/password.csv") as csvfile:
 
 
 
-#print(response.text)
-#print(response.status_code)
-#print(dict(response.cookies))
-
-
